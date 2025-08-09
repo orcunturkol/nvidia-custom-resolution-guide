@@ -16,6 +16,7 @@ This guide explains how to manually add a custom screen resolution for your NVID
 5.  Check the "Data" column. If it doesn't say "NVIDIA...", move to the next folder with a long name and check its `0000` subfolder.
 6.  Repeat this until you find the folder where `DriverDesc` shows your **"NVIDIA GeForce..."** graphics card. This is the correct folder.
 
+
 ---
 
 ### Step 2: Edit or Create the Resolution Value
@@ -24,12 +25,16 @@ This guide explains how to manually add a custom screen resolution for your NVID
 2.  Look for an existing value named **`NV_Modes`**.
     * **If it already exists**, double-click it to edit.
     * **If it does NOT exist**, right-click in the empty white space on the right panel, go to **`New` -> `Multi-String Value`**, and name it exactly **`NV_Modes`**.
+<img width="333" height="205" alt="image" src="https://github.com/user-attachments/assets/003e713c-aac8-4b8f-a9e9-616f7892c283" />
+<img width="540" height="191" alt="image" src="https://github.com/user-attachments/assets/de23f4e9-5374-4ece-863c-e7fe59953999" />
 
 ---
 
 ### Step 3: Add Your Custom Resolution
 
 Double-click your `NV_Modes` value to open the editor box. **Delete any text already inside** and replace it with the resolution(s) you want.
+
+<img width="341" height="310" alt="image" src="https://github.com/user-attachments/assets/e8ff68ce-dec9-4315-983e-e6d47b160f81" />
 
 **Format A: For adding a single resolution from scratch.**
 
@@ -38,6 +43,7 @@ Double-click your `NV_Modes` value to open the editor box. **Delete any text alr
 
 * **Example (for 3840x1440 @ 240Hz):**
     `{*}S 3840 1440 3840 1440 32 240`
+<img width="347" height="311" alt="image" src="https://github.com/user-attachments/assets/36bac91b-605b-47ca-b758-4ccda73b5ea6" />
 
 **Format B: For creating a list of resolutions.**
 
@@ -45,7 +51,9 @@ Double-click your `NV_Modes` value to open the editor box. **Delete any text alr
     `[Width]x[Height]x32,[RefreshRate]`
 
 * **Example (for 3840x1440 @ 240Hz):**
-    `3840x1440x32,240`
+    `{*}S 640x480x32,64 720x480x32,64 800x600x32,64 1024x768x32,64 1152x864x32,64 1280x720x32,64 1280x768x32,64 1280x800x32,64 1280x960x32,64 1280x1024x32,64 1360x768x32,64 1366x768x32,64 1440x1080x32,64 1600x900x32,64 1600x1024x32,64 1600x1200x32,64 1680x1050x32,64 1920x1080x32,64 1920x1200x32,64 1920x1440x32,64 2048x1536x32,64 2560x1440x32,64 2560x1600x32,64 3840x1440x32,240=1; 720x576x32,64=8032;
+`
+<img width="345" height="313" alt="image" src="https://github.com/user-attachments/assets/e5bef724-13fb-4f75-a39c-d2381ee1c72c" />
 
 ---
 
