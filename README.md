@@ -16,15 +16,20 @@ This guide explains how to manually add a custom screen resolution for your NVID
 5.  Check the "Data" column. If it doesn't say "NVIDIA...", move to the next folder with a long name and check its `0000` subfolder.
 6.  Repeat this until you find the folder where `DriverDesc` shows your **"NVIDIA GeForce..."** graphics card. This is the correct folder.
 
-### Step 2: Create the Resolution Value
+---
+
+### Step 2: Edit or Create the Resolution Value
 
 1.  Stay inside that correct `0000` folder.
-2.  In the empty white space on the right panel, right-click and go to **`New` -> `Multi-String Value`**.
-3.  Name this new value exactly **`NV_Modes`** and press Enter.
+2.  Look for an existing value named **`NV_Modes`**.
+    * **If it already exists**, double-click it to edit.
+    * **If it does NOT exist**, right-click in the empty white space on the right panel, go to **`New` -> `Multi-String Value`**, and name it exactly **`NV_Modes`**.
+
+---
 
 ### Step 3: Add Your Custom Resolution
 
-Double-click your new `NV_Modes` value to open the editor box. Here, you will type the resolution you want to add. There are two common formats.
+Double-click your `NV_Modes` value to open the editor box. **Delete any text already inside** and replace it with the resolution(s) you want.
 
 **Format A: For adding a single resolution from scratch.**
 
@@ -34,7 +39,7 @@ Double-click your new `NV_Modes` value to open the editor box. Here, you will ty
 * **Example (for 3840x1440 @ 240Hz):**
     `{*}S 3840 1440 3840 1440 32 240`
 
-**Format B: For adding to an existing list of resolutions.**
+**Format B: For creating a list of resolutions.**
 
 * **Template:**
     `[Width]x[Height]x32,[RefreshRate]`
@@ -42,7 +47,7 @@ Double-click your new `NV_Modes` value to open the editor box. Here, you will ty
 * **Example (for 3840x1440 @ 240Hz):**
     `3840x1440x32,240`
 
-Copy the template, replace the `[bracketed]` parts with your desired numbers, and paste it into the text box.
+---
 
 ### Step 4: Restart Your Computer
 
@@ -53,4 +58,7 @@ This is the final and most important step. Close the Registry Editor and **resta
 ### Troubleshooting
 
 * **Problem:** I get a warning that says "Data of type REG_MULTI_SZ cannot contain empty strings."
-* **Solution:** This just means you accidentally pasted a blank line. Click **OK** on the warning. Then, double-check the text box and delete any empty lines, especially at the very end of the text.
+    * **Solution:** This just means you accidentally pasted a blank line. Click **OK** on the warning. Then, double-check the text box and delete any empty lines, especially at the very end of the text.
+
+* **Problem:** The `NV_Modes` key already existed. What about the `0001`, `0002` folders?
+    * **Solution:** That's perfectly normal. If `NV_Modes` already exists, your action was correct: you should edit it and replace its contents. The other folders (`0001`, `0002`, etc.) represent different connection states or profiles. While changing the `0000` folder is usually enough, changing it in the other folders as well is a good "just in case" step and does no harm.
